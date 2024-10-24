@@ -19,7 +19,7 @@
   "repository": "https://github.com/encode-studio-fe/encode-hooks",
   "homepage": "https://github.com/encode-studio-fe/encode-hooks",
   "scripts": {
-    "build": "gulp && webpack-cli"
+    "build": "gulp"
   },
   "files": [
     "dist",
