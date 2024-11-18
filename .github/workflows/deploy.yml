@@ -25,13 +25,13 @@ jobs:
         with:
           node-version: 16.20.2
 
-      - name: Install pnpm compatible with Node.js 16
-        run: npm i -g pnpm@7
+      # - name: Install pnpm compatible with Node.js 16
+      #   run: npm i -g pnpm@7
 
       # 安装与构建
       - name: Install and Build
         run: |
-          npm i -g pnpm
+          npm i -g pnpm@7
           pnpm run init
           pnpm run build:doc
         env:
