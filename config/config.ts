@@ -1,7 +1,5 @@
 import { menus } from './hooks';
 
-// const packages = require('../packages/hooks/package.json');
-
 export default {
   exportStatic: {},
   nodeModulesTransform: {
