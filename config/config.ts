@@ -21,7 +21,7 @@ export default {
     ],
   ],
   mode: 'site',
-  title: 'encode react hooks',
+  title: 'tech react hooks',
   favicon: '/avatar.png',
   logo: '/logo.png',
   dynamicImport: {},
