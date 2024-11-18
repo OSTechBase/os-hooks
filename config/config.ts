@@ -8,6 +8,7 @@ export default {
     type: 'none',
     exclude: [],
   },
+  publicPath: '/tech-hooks/',
   history: { type: 'hash' },
   extraBabelPlugins: [
     [
