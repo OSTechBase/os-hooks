@@ -20,7 +20,11 @@
     "encode-fe-lint-scan": "encode-fe-lint scan",
     "encode-fe-lint-fix": "encode-fe-lint fix"
   },
-  "keywords": [],
+  "keywords": [
+    "encode",
+    "react",
+    "hooks"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
