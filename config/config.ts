@@ -22,6 +22,7 @@ export default {
   ],
   mode: 'site',
   // title: 'tech react hooks',
+  title: '',
   favicon: '/tech-hooks/avatar.png',
   logo: '/tech-hooks/logo.png',
   dynamicImport: {},
