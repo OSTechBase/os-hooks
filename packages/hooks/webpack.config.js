@@ -8,5 +8,5 @@ module.exports = merge(common, {
     filename: 'techHooks.js',
     library: 'techHooks',
     path: path.resolve(__dirname, './dist'),
-  },
-});
+  }
+})

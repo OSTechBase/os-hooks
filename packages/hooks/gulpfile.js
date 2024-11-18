@@ -2,7 +2,7 @@ const commonConfig = require('../../gulpfile');
 const gulp = require('gulp');
 const fs = require('fs');
 const fse = require('fs-extra');
-const fg = require('fast-glob');
+const fg = require('fast-glob');// 遍历文件系统并返回与一组指定模式匹配的路径名的方法
 const gm = require('gray-matter');
 const generateDesc = async (mdPath) => {
   // fs.existsSync 判断文件路径是否存在
