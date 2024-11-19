@@ -11,12 +11,10 @@ const generateDesc = async (mdPath) => {
   }
   // readFileSync 返回路径文件内容
   const mdFile = fs.readFileSync(mdPath, 'utf-8');
-  //   console.log('mdFile', mdFile);
   const { content } = gm(mdFile);
   let description = (
     (content.replace(/\r\n/g, '\n').match(/# \w+[\s\n]+(.+?)(?:, |\. |\n|\.\n)/m) || [])[1] || ''
   ).trim();
-  console.log('content', description);
   return description;
 };
 // 生成metadata.json
@@ -43,19 +41,16 @@ async function generateMetaData() {
     }),
   ).then((res) => {
     metaData.functions = res.map((item) => {
-      console.log('item', item);
       if (item.status === 'fulfilled') {
         return item.value;
       }
       return null;
     });
   });
-  console.log('hooks', hooks);
   return metaData;
 }
 gulp.task('metadata', async function () {
   const metaData = await generateMetaData();
-  console.log('metaData', metaData);
   await fse.writeJson('metadata.json', metaData, {
     spaces: 2, //文件格式：2个空格
   });

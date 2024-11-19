@@ -1,9 +1,11 @@
 {
   "name": "os-hooks",
   "version": "0.0.1",
-  "description": "React 业务 Hooks",
+  "description": "开源 React 业务 Hooks",
   "keywords": [
-    "tech",
+    "open",
+    "source",
+    "os",
     "react",
     "hooks"
   ],
