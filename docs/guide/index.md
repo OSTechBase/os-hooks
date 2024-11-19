@@ -20,7 +20,7 @@ React 业务 Hooks
 
 在前端项目开发中，我们通常有着各种各样可以复用的业务场景，如何能够将重复的代码量转为可复用的开发工具，是判断一个程序员编码水平及代码能力的衡量因素之一。但如何实现代码复用，也是前端开发同学乃至前端架构师都老生常谈的一个问题。
 
-Tech Hooks 是针对 React 开发中出现的各种各样可以复用的业务场景定制的一个前端业务 react hooks 库。
+Open Source Hooks 是针对 React 开发中出现的各种各样可以复用的业务场景定制的一个前端业务 react hooks 库。
 
 ## ⚒️ 技术选型
 
@@ -47,7 +47,7 @@ Tech Hooks 是针对 React 开发中出现的各种各样可以复用的业务�
 
 ## 📧 联系
 
-- **tech Hooks** <https://ostechbase.github.io/os-hooks/>
+- **Open Source Hooks** <https://ostechbase.github.io/os-hooks/>
 - **GitHub**: <https://github.com/OSTechBase/os-hooks>
 
 </br>
