@@ -43,6 +43,7 @@ export default {
   navs: [
     { title: '指南', path: '/guide' },
     { title: 'Hooks', path: '/hooks' },
+    { title: 'GitHub', path: 'https://github.com/OSTechBase/tech-hooks' },
   ],
   menus: {
     '/': [
