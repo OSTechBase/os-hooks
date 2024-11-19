@@ -11,9 +11,9 @@
     "paths": {
       "@/*": ["src/*"],
       "techHooks": ["./packages/hooks/src/index.ts"],
-      "tech-hooks": ["./packages/hooks/src/index.ts"],
+      "os-hooks": ["./packages/hooks/src/index.ts"],
       "techHooks/lib/*": ["./packages/hooks/src/*"],
-      "tech-hooks/lib/*": ["./packages/hooks/src/*"]
+      "os-hooks/lib/*": ["./packages/hooks/src/*"]
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,

@@ -1,5 +1,5 @@
 {
-  "name": "tech-hooks",
+  "name": "os-hooks",
   "version": "0.0.1",
   "description": "React 业务 Hooks",
   "keywords": [
@@ -16,8 +16,8 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "repository": "https://github.com/OSTechBase/tech-hooks",
-  "homepage": "https://github.com/OSTechBase/tech-hooks",
+  "repository": "https://github.com/OSTechBase/os-hooks",
+  "homepage": "https://github.com/OSTechBase/os-hooks",
   "scripts": {
     "build": "gulp && webpack-cli"
   },

@@ -8,7 +8,7 @@ export default {
     type: 'none',
     exclude: [],
   },
-  publicPath: '/tech-hooks/',
+  publicPath: '/os-hooks/',
   history: { type: 'hash' },
   extraBabelPlugins: [
     [
@@ -22,8 +22,8 @@ export default {
   ],
   mode: 'site',
   title: 'tech hooks',
-  favicon: '/tech-hooks/avatar.png',
-  logo: '/tech-hooks/logo.png',
+  favicon: '/os-hooks/avatar.png',
+  logo: '/os-hooks/logo.png',
   dynamicImport: {},
   manifest: {},
   hash: true,
@@ -43,7 +43,7 @@ export default {
   navs: [
     { title: '指南', path: '/guide' },
     { title: 'Hooks', path: '/hooks' },
-    { title: 'GitHub', path: 'https://github.com/OSTechBase/tech-hooks' },
+    { title: 'GitHub', path: 'https://github.com/OSTechBase/os-hooks' },
   ],
   menus: {
     '/': [

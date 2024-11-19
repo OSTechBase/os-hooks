@@ -1,4 +1,4 @@
-# tech-hooks
+# os-hooks
 
 React 业务 Hooks
 
@@ -47,7 +47,7 @@ Tech Hooks 是针对 React 开发中出现的各种各样可以复用的业务�
 
 ## 📧 联系
 
-- **tech Hooks** <https://ostechbase.github.io/tech-hooks/>
-- **GitHub**: <https://github.com/OSTechBase/tech-hooks>
+- **tech Hooks** <https://ostechbase.github.io/os-hooks/>
+- **GitHub**: <https://github.com/OSTechBase/os-hooks>
 
 </br>

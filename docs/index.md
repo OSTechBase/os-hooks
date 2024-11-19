@@ -1,7 +1,7 @@
 ---
 title: 首页
 hero:
-  image: /tech-hooks/short-logo.png
+  image: /os-hooks/short-logo.png
   desc: React 业务 Hooks
   actions:
     - text: 指南
@@ -20,13 +20,13 @@ footer: Copyright (c) © 2024 by huangyongrui studio, All Rights Reserved
 ## 📦 安装
 
 ```bash
-$ pnpm install --save tech-hooks
+$ pnpm install --save os-hooks
 # or
-$ yarn add tech-hooks
+$ yarn add os-hooks
 ```
 
 ## 🔨 使用
 
 ```ts
-import { useToggle } from 'tech-hooks';
+import { useToggle } from 'os-hooks';
 ```

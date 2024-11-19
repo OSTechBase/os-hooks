@@ -1,11 +1,11 @@
 {
-  "name": "tech-hooks",
+  "name": "os-hooks",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/OSTechBase/tech-hooks"
+    "url": "https://github.com/OSTechBase/os-hooks"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
