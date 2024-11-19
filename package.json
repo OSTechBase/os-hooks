@@ -2,6 +2,11 @@
   "name": "tech-hooks",
   "version": "1.0.0",
   "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OSTechBase/tech-hooks"
+  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
