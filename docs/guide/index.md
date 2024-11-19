@@ -1,6 +1,6 @@
 # tech-hooks
 
-XXXX React 业务 Hooks
+React 业务 Hooks
 
 ## ⛰️ 能力支持
 
@@ -20,7 +20,7 @@ XXXX React 业务 Hooks
 
 在前端项目开发中，我们通常有着各种各样可以复用的业务场景，如何能够将重复的代码量转为可复用的开发工具，是判断一个程序员编码水平及代码能力的衡量因素之一。但如何实现代码复用，也是前端开发同学乃至前端架构师都老生常谈的一个问题。
 
-除此之外，很多同学在平时的开发中只是实现最基本的页面开发，对于构建工具的使用，测试用例的编写都少有涉及，在前端 `gulp`、`grunt`、`webpack`、`esbuild`、`SWC`、`vite`、`trubo` 等构件工具越出越多的背景下，如何掌握和选择这些框架，也是能够体现是否到达高级前端开发工程师水平的一个衡量依据。因此，这里我们通过以 `React` 为前端框架，`React Hooks` 作为核心产出，从 0 ～ 1 手把手搭建一个前端业务 `Hooks` 库，从产品设计、框架选择、架构设计到最终的编码落地，通过一个完整的产品实现，解决如何提升代码复用的问题。
+Tech Hooks 是针对 React 开发中出现的各种各样可以复用的业务场景定制的一个前端业务 react hooks 库。
 
 ## ⚒️ 技术选型
 
@@ -45,21 +45,9 @@ XXXX React 业务 Hooks
 
 `jest`功能全面，资料丰富，能够很好地支撑原子化集合的工具函数；
 
-## 其他
-
-### 生成`CHANGELOG`
-
-参考[conventional-changelog-cli](https://www.npmjs.com/package/conventional-changelog-cli)，全局安装`conventional-changelog-cli`：
-
-```bash
-npm install -g conventional-changelog-cli
-pnpm run changelog
-```
-
 ## 📧 联系
 
-- **XXXX 官网**: <http://encodestudio.cn>
-- **encode Hooks** <https://encode-studio-fe.github.io/tech-hooks/>
-- **GitHub**: <https://github.com/encode-studio-fe/tech-hooks>
+- **encode Hooks** <https://ostechbase.github.io/tech-hooks/>
+- **GitHub**: <https://github.com/OSTechBase/tech-hooks>
 
 </br>

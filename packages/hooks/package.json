@@ -1,7 +1,7 @@
 {
   "name": "tech-hooks",
   "version": "0.0.1",
-  "description": "XXXX React 业务 Hooks",
+  "description": "React 业务 Hooks",
   "keywords": [
     "tech",
     "react",
@@ -16,8 +16,8 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "repository": "https://github.com/encode-studio-fe/encode-hooks",
-  "homepage": "https://github.com/encode-studio-fe/encode-hooks",
+  "repository": "https://github.com/OSTechBase/tech-hooks",
+  "homepage": "https://github.com/OSTechBase/tech-hooks",
   "scripts": {
     "build": "gulp && webpack-cli"
   },
