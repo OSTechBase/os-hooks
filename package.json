@@ -39,7 +39,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.4.0",
     "@types/mockjs": "^1.0.7",
@@ -87,5 +87,8 @@
       "pre-commit": "encode-fe-lint commit-file-scan",
       "commit-msg": "encode-fe-lint commit-msg-scan"
     }
+  },
+  "dependencies": {
+    "@types/react": "^18.3.12"
   }
 }

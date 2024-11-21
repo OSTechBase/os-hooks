@@ -1,6 +1,10 @@
 export const menus = [
   {
     title: '状态',
-    children: ['useToggle'],
+    children: ['useToggle', 'useCookieState'],
+  },
+  {
+    title: 'Effect',
+    children: [/* 'useDebounceFn', 'useThrottleFn', */ 'useUpdateEffect'],
   },
 ];

@@ -9,6 +9,8 @@ const screenfullMethods = [
   'fullscreenerror',
 ];
 screenfullMethods.forEach((item) => {
-  document[item] = () => {};
-  HTMLElement.prototype[item] = () => {};
+  document[item] = () => { };
+  HTMLElement.prototype[item] = () => { };
 });
+
+
