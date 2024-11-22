@@ -5,8 +5,8 @@ const path = require('path');
 module.exports = merge(common, {
   entry: './es/index.js',
   output: {
-    filename: 'techHooks.js',
-    library: 'techHooks',
+    filename: 'osHooks.js',
+    library: 'osHooks',
     path: path.resolve(__dirname, './dist'),
   },
 });

@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { useToggle } from 'techHooks';
+import { useToggle } from 'osHooks';
 
 export default () => {
   const [state, { toggle, setLeft, setRight }] = useToggle();

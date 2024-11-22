@@ -12,7 +12,7 @@
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./lib/index.d.ts",
-  "unpkg": "dist/techHooks.js",
+  "unpkg": "dist/osHooks.js",
   "sideEffects": false,
   "authors": "chenghuai",
   "publishConfig": {
@@ -33,7 +33,6 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.21.0",
-    "dayjs": "^1.9.1",
     "intersection-observer": "^0.12.0",
     "js-cookie": "^2.x.x",
     "lodash-es": "^4.17.21",
@@ -47,6 +46,7 @@
   "devDependencies": {
     "@alifd/next": "^1.20.6",
     "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-components": "^2.8.2",
     "@types/js-cookie": "^2.x.x",
     "@types/lodash-es": "^4.17.7",
     "antd": "^5.21.4",

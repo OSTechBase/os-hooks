@@ -1,11 +1,16 @@
 import { createUpdateEffect } from './createUpdateEffect';
+import useUrlAsFile from './useUrlAsFile';
+import useAudioPlay from './useAudioPlay';
+import useMediaRecorder from './useMediaRecorder';
 // import useBoolean from './useBoolean';
 // import useClickAway from './useClickAway';
 import useCookieState from './useCookieState';
+import useDownload from './useDownload';
 import useUpdateEffect from './useUpdateEffect';
+import useModalFn from './useModalFn';
 // import useCreation from './useCreation';
 // import useDebounce from './useDebounce';
-// import useDebounceFn from './useDebounceFn';
+import useDebounceFn from './useDebounceFn';
 // import useDocumentVisibility from './useDocumentVisibility';
 // import useDrag from './useDrag';
 // import useDrop from './useDrop';
@@ -17,7 +22,7 @@ import useUpdateEffect from './useUpdateEffect';
 // import useInViewport from './useInViewport';
 // import useKeyPress from './useKeyPress';
 // import useLatest from './useLatest';
-// import useLocalStorageState from './useLocalStorageState';
+import useLocalStorageState from './useLocalStorageState';
 // import useLongPress from './useLongPress';
 // import useMap from './useMap';
 // import useMemoizedFn from './useMemoizedFn';
@@ -31,15 +36,15 @@ import useUpdateEffect from './useUpdateEffect';
 // import { configResponsive, useResponsive } from './useResponsive';
 // import useSafeState from './useSafeState';
 // import useScroll from './useScroll';
-// import useSessionStorageState from './useSessionStorageState';
+import useSessionStorageState from './useSessionStorageState';
 // import useSet from './useSet';
 // import useSetState from './useSetState';
 // import useSize from './useSize';
 // import useThrottle from './useThrottle';
-// import useThrottleFn from './useThrottleFn';
+import useThrottleFn from './useThrottleFn';
 // import useTitle from './useTitle';
 import useToggle from './useToggle';
-// import useUnmount from './useUnmount';
+import useUnmount from './useUnmount';
 // import useUnmountedRef from './useUnmountedRef';
 // import useUpdate from './useUpdate';
 
@@ -49,12 +54,17 @@ export {
   createUpdateEffect,
   useCookieState,
   useUpdateEffect,
+  useDownload,
+  useUrlAsFile,
+  useAudioPlay,
+  useMediaRecorder,
+  useModalFn,
   //   configResponsive,
   //   useBoolean,
   //   useClickAway,
   //   useCreation,
   //   useDebounce,
-  //   useDebounceFn,
+  useDebounceFn,
   //   useDocumentVisibility,
   //   useDrag,
   //   useDrop,
@@ -66,7 +76,7 @@ export {
   //   useInViewport,
   //   useKeyPress,
   //   useLatest,
-  //   useLocalStorageState,
+  useLocalStorageState,
   //   useLongPress,
   //   useMap,
   //   useMemoizedFn,
@@ -80,14 +90,14 @@ export {
   //   useResponsive,
   //   useSafeState,
   //   useScroll,
-  //   useSessionStorageState,
+  useSessionStorageState,
   //   useSet,
   //   useSetState,
   //   useSize,
   //   useThrottle,
-  //   useThrottleFn,
+  useThrottleFn,
   //   useTitle,
-  //   useUnmount,
+  useUnmount,
   //   useUnmountedRef,
   //   useUpdate,
 };

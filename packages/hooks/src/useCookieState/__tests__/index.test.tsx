@@ -14,13 +14,13 @@ describe('useCookieState', () => {
       } as const;
     });
 
-  it('getKey should work', async () => {
+  it('getKey should work', () => {
     const COOKIE = 'test-key';
     const hook = setUp(COOKIE, {
       defaultValue: 'A',
     });
     expect(hook.result.current.state).toBe('A');
-    await act(() => {
+    act(() => {
       hook.result.current.setState('B');
     });
     expect(hook.result.current.state).toBe('B');
@@ -28,7 +28,7 @@ describe('useCookieState', () => {
       defaultValue: 'A',
     });
     expect(anotherHook.result.current.state).toBe('B');
-    await act(() => {
+    act(() => {
       anotherHook.result.current.setState('C');
     });
     expect(anotherHook.result.current.state).toBe('C');
@@ -36,13 +36,13 @@ describe('useCookieState', () => {
     expect(Cookies.get(COOKIE)).toBe('C');
   });
 
-  it('should support undefined', async () => {
+  it('should support undefined', () => {
     const COOKIE = 'test-boolean-key-with-undefined';
     const hook = setUp(COOKIE, {
       defaultValue: 'undefined',
     });
     expect(hook.result.current.state).toBe('undefined');
-    await act(() => {
+    act(() => {
       hook.result.current.setState(undefined);
     });
     expect(hook.result.current.state).toBeUndefined();
@@ -51,7 +51,7 @@ describe('useCookieState', () => {
     });
     expect(anotherHook.result.current.state).toBe('false');
     expect(Cookies.get(COOKIE)).toBeUndefined();
-    await act(() => {
+    act(() => {
       // @ts-ignore
       hook.result.current.setState();
     });
@@ -69,31 +69,31 @@ describe('useCookieState', () => {
     expect(hook.result.current.state).toBe('');
   });
 
-  it('should support function updater', async () => {
+  it('should support function updater', () => {
     const COOKIE = 'test-func-updater';
     const hook = setUp(COOKIE, {
       defaultValue: () => 'hello world',
     });
     expect(hook.result.current.state).toBe('hello world');
-    await act(() => {
+    act(() => {
       hook.result.current.setState((state) => `${state}, zhangsan`);
     });
     expect(hook.result.current.state).toBe('hello world, zhangsan');
   });
 
-  it('using the same cookie name', async () => {
+  it('using the same cookie name', () => {
     const COOKIE_NAME = 'test-same-cookie-name';
     const { result: result1 } = setUp(COOKIE_NAME, { defaultValue: 'A' });
     const { result: result2 } = setUp(COOKIE_NAME, { defaultValue: 'B' });
     expect(result1.current.state).toBe('A');
     expect(result2.current.state).toBe('B');
-    await act(() => {
+    act(() => {
       result1.current.setState('C');
     });
     expect(result1.current.state).toBe('C');
     expect(result2.current.state).toBe('B');
     expect(Cookies.get(COOKIE_NAME)).toBe('C');
-    await act(() => {
+    act(() => {
       result2.current.setState('D');
     });
     expect(result1.current.state).toBe('C');

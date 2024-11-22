@@ -28,7 +28,7 @@ export default {
   manifest: {},
   hash: true,
   alias: {
-    techHooks: process.cwd() + '/packages/hooks/src/index.ts',
+    osHooks: process.cwd() + '/packages/hooks/src/index.ts',
   },
   resolve: {
     includes: ['docs', 'packages/hooks/src'],
