@@ -4,12 +4,12 @@ import { ModalProps } from 'antd/lib/modal/interface';
 import { SyntheticEvent } from 'react';
 import React from 'react';
 interface config {
-    onOk?: () => boolean;
+    onOk?: Function;
     onClose?: (e: SyntheticEvent<Element, Event>) => void;
     children?: React.ReactNode;
 }
 interface Props {
-    onOk?: () => boolean;
+    onOk?: Function;
     onCancel: Function;
     closeModal: Function;
     afterClose?: Function;

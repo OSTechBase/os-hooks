@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Modal } from 'antd';
 interface Props {
-    onOk?: () => boolean;
+    onOk?: Function;
     closeModal: Function;
     children?: React.ReactNode
     open: boolean;
