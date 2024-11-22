@@ -49,5 +49,6 @@ Open Source Hooks 是针对 React 开发中出现的各种各样可以复用的�
 
 - **Open Source Hooks** <https://ostechbase.github.io/os-hooks/>
 - **GitHub**: <https://github.com/OSTechBase/os-hooks>
+- **NPM**: <https://www.npmjs.com/package/os-hooks>
 
 </br>

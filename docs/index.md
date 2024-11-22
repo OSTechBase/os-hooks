@@ -20,9 +20,9 @@ footer: Copyright (c) © 2024 by huangyongrui studio, All Rights Reserved
 ## 📦 安装
 
 ```bash
-$ pnpm install --save os-hooks
+$ npm install --save os-hooks
 # or
-$ yarn add os-hooks
+$ pnpm add os-hooks
 ```
 
 ## 🔨 使用
