@@ -6,8 +6,14 @@ import { isFunction } from '../utils';
 import isDev from '../utils/isDev';
 
 type noop = (...args: any[]) => any;
-
-function useThrottleFn<T extends noop>(fn: T, options?: ThrottleOptions) {
+function useThrottleFn<T extends noop>(
+  fn: T,
+  options?: ThrottleOptions,
+): {
+  run: ReturnType<typeof throttle>;
+  cancel: () => void;
+  flush: () => ReturnType<T>;
+} {
   if (isDev) {
     if (!isFunction(fn)) {
       console.error(`useThrottleFn expected parameter is a function, got ${typeof fn}`);
