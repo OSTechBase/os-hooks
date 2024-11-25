@@ -8,6 +8,8 @@ export const menus = [
       'useUrlAsFile',
       'useAudioPlay',
       'useMediaRecorder',
+      'useLocalStorageState',
+      'useSessionStorageState',
     ],
   },
   {
