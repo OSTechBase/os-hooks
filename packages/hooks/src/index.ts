@@ -12,6 +12,9 @@ import useSessionStorageState from './useSessionStorageState';
 import useThrottleFn from './useThrottleFn';
 import useToggle from './useToggle';
 import useUnmount from './useUnmount';
+import useStickyBox from './useStickyBox';
+import useScroll from './useScroll';
+import useRafState from './useRafState';
 export {
   useToggle,
   createUpdateEffect,
@@ -27,4 +30,7 @@ export {
   useSessionStorageState,
   useThrottleFn,
   useUnmount,
+  useStickyBox,
+  useScroll,
+  useRafState,
 };

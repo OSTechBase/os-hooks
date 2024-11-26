@@ -10,6 +10,8 @@ export const menus = [
       'useMediaRecorder',
       'useLocalStorageState',
       'useSessionStorageState',
+      'useStickyBox',
+      'useScroll',
     ],
   },
   {
