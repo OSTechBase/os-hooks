@@ -16,7 +16,7 @@ function useThrottleFn<T extends noop>(
 } {
   if (isDev) {
     if (!isFunction(fn)) {
-      console.error(`useThrottleFn expected parameter is a function, got ${typeof fn}`);
+      console.error(`useThrottleFn 预期参数是一个函数，得到 ${typeof fn}`);
     }
   }
 

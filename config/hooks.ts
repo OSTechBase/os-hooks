@@ -16,7 +16,7 @@ export const menus = [
   },
   {
     title: 'Effect',
-    children: ['useDebounceFn', 'useThrottleFn', 'useUpdateEffect', 'useModalFn'],
+    children: ['useDebounceFn', 'useThrottleFn', 'useUpdateEffect', 'useModalFn', 'useMemoizedFn'],
   },
   {
     title: '生命周期',

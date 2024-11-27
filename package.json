@@ -1,12 +1,13 @@
 {
   "name": "os-hooks",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/OSTechBase/os-hooks"
   },
+  "homepage": "https://ostechbase.github.io/os-hooks",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",

@@ -5,7 +5,7 @@ import isDev from '../utils/isDev';
 const useUnmount = (fn: () => void) => {
   if (isDev) {
     if (!isFunction(fn)) {
-      console.error(`useUnmount expected parameter is a function, got ${typeof fn}`);
+      console.error(`useUnmount 预期参数是一个函数，得到 ${typeof fn}`);
     }
   }
 

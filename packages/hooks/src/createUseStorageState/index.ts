@@ -20,7 +20,6 @@ export function createUseStorageState(getStorage: () => Storage | undefined) {
       },
     } = options;
 
-    // https://github.com/alibaba/hooks/issues/800
     try {
       storage = getStorage();
     } catch (err) {

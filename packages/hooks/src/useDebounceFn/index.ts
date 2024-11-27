@@ -10,7 +10,7 @@ type noop = (...args: any[]) => any;
 function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
   if (isDev) {
     if (!isFunction(fn)) {
-      console.error(`useDebounceFn expected parameter is a function, got ${typeof fn}`);
+      console.error(`useDebounceFn 预期参数是一个函数，得到 ${typeof fn}`);
     }
   }
 
