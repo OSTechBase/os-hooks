@@ -12,6 +12,7 @@ export const menus = [
       'useSessionStorageState',
       'useStickyBox',
       'useScroll',
+      'useQueryParams',
     ],
   },
   {

@@ -16,6 +16,7 @@ import useStickyBox from './useStickyBox';
 import useScroll from './useScroll';
 import useRafState from './useRafState';
 import useMemoizedFn from './useMemoizedFn';
+import useQueryParams from './useQueryParams';
 export {
   useToggle,
   createUpdateEffect,
@@ -35,4 +36,5 @@ export {
   useScroll,
   useRafState,
   useMemoizedFn,
+  useQueryParams,
 };
