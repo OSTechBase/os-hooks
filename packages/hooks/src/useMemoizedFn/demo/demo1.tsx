@@ -5,7 +5,7 @@
 
 import React, { useState, useCallback } from 'react';
 import { message } from 'antd';
-import { useMemoizedFn } from 'encode-hooks';
+import { useMemoizedFn } from 'os-hooks';
 
 export default () => {
   const [count, setCount] = useState(0);
@@ -17,6 +17,7 @@ export default () => {
   const memoizedFn = useMemoizedFn(() => {
     message.info(`Current count is ${count}`);
   });
+  console.log('memoizedFn', memoizedFn);
 
   return (
     <>
@@ -33,7 +34,7 @@ export default () => {
         <button type="button" onClick={callbackFn}>
           call callbackFn
         </button>
-        <button type="button" onClick={memoizedFn} style={{ marginLeft: 8 }}>
+        <button type="button" onClick={() => memoizedFn} style={{ marginLeft: 8 }}>
           call memoizedFn
         </button>
       </div>

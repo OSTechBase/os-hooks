@@ -15,7 +15,7 @@ import useUnmount from './useUnmount';
 import useStickyBox from './useStickyBox';
 import useScroll from './useScroll';
 import useRafState from './useRafState';
-import useMemoizedFn from './useRafState';
+import useMemoizedFn from './useMemoizedFn';
 export {
   useToggle,
   createUpdateEffect,
