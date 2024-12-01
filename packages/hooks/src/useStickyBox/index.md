@@ -5,7 +5,7 @@ nav:
 
 # useStickyBox
 
-用来处理函数节流的 Hook。
+用实现吸顶效果的 Hook。
 
 ## 代码演示
 
