@@ -17,6 +17,9 @@ import useScroll from './useScroll';
 import useRafState from './useRafState';
 import useMemoizedFn from './useMemoizedFn';
 import useQueryParams from './useQueryParams';
+import useStream from './useStream';
+import useWebSocket from './useWebSocket';
+import useLatest from './useLatest';
 export {
   useToggle,
   createUpdateEffect,
@@ -37,4 +40,7 @@ export {
   useRafState,
   useMemoizedFn,
   useQueryParams,
+  useStream,
+  useWebSocket,
+  useLatest,
 };

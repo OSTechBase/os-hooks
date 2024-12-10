@@ -26,6 +26,13 @@ export default {
   logo: '/os-hooks/logo.png',
   dynamicImport: {},
   manifest: {},
+  proxy: {
+    '/stream': {
+      target: 'https://udify.app',
+      changeOrigin: true,
+      pathRewrite: { '^/stream': '' },
+    },
+  },
   hash: true,
   alias: {
     osHooks: process.cwd() + '/packages/hooks/src/index.ts',
