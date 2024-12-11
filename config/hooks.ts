@@ -26,6 +26,7 @@ export const menus = [
       'useMediaRecorder',
       'useStickyBox',
       'useWebSocket',
+      'useCountDown',
     ],
   },
   {

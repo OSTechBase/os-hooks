@@ -24,6 +24,7 @@ importers:
       cors: ^2.8.5
       coveralls: ^3.1.1
       cross-env: ^7.0.3
+      dayjs: ^1.11.13
       del: ^5.1.0
       dumi: ^1.1.48
       encode-fe-lint: ^1.0.9
@@ -59,6 +60,7 @@ importers:
     dependencies:
       '@types/react': 18.3.12
       cors: 2.8.5
+      dayjs: 1.11.13
       express: 4.21.2
     devDependencies:
       '@ant-design/icons': 5.5.1_nnrd3gsncyragczmpvfhocinkq
@@ -6669,7 +6671,6 @@ packages:
 
   /dayjs/1.11.13:
     resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
-    dev: true
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
