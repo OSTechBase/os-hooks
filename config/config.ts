@@ -27,10 +27,10 @@ export default {
   dynamicImport: {},
   manifest: {},
   proxy: {
-    '/stream': {
-      target: 'https://udify.app',
+    '/api': {
+      target: 'http://localhost:3001',
       changeOrigin: true,
-      pathRewrite: { '^/stream': '' },
+      pathRewrite: { '^/api': '' },
     },
   },
   hash: true,

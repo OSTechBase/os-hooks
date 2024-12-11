@@ -8,7 +8,7 @@ export const menus = [
       'useSessionStorageState',
       'useScroll',
       'useQueryParams',
-      // 'useStream',
+      'useStream',
       'useLatest',
     ],
   },

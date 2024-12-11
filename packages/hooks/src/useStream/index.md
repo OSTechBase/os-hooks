@@ -5,44 +5,31 @@ nav:
 
 # useStream
 
-用实现吸顶效果的 Hook。
+用实现流式渲染的 Hook。
 
 ## 代码演示
 
-### 容器为浏览器
-
 <code hideActions='["CSB"]' src="./demo/demo1.tsx" />
-
-### 嵌套滚动容器
-
-<!-- <code hideActions='["CSB"]' src="./demo/demo2.tsx" /> -->
 
 ## API
 
 ```typescript
-  const [setNode, stickyState] = useStickyBox({
-  offsetTop?: number;
-  offsetBottom?: number;
+  const {messageList,run} = useStream({
+  url: string;
+  options: Options;
 });
 ```
 
 ### Options
 
-| 参数         | 说明       | 类型     | 默认值 |
-| ------------ | ---------- | -------- | ------ |
-| offsetTop    | 吸顶偏移量 | `number` | `0`    |
-| offsetBottom | 吸底偏移量 | `number` | `0`    |
+| 参数         | 说明                   | 类型                | 默认值 |
+| ------------ | ---------------------- | ------------------- | ------ |
+| init         | 请求参数的配置         | `RequestInit`       | `-`    |
+| formatResult | 对返回数据的自定义处理 | `(res: any) => any` | `-`    |
 
 ### Result
 
-| 参数        | 说明       | 类型          |
-| ----------- | ---------- | ------------- |
-| setNode     | 节点的 ref | `HTMLElement` |
-| stickyState | 粘贴 状态  | `StickyState` |
-
-### StickyState
-
-| 参数           | 说明     | 类型      | 默认值  |
-| -------------- | -------- | --------- | ------- |
-| isStickyTop    | 粘顶状态 | `boolean` | `false` |
-| isStickyBottom | 粘底状态 | `boolean` | `false` |
+| 参数        | 说明                         | 类型                                                  |
+| ----------- | ---------------------------- | ----------------------------------------------------- |
+| messageList | 处理后用于更新渲染的数据     | `any[]`                                               |
+| run         | 发送请求并更新发送消息的函数 | `(params: ParamsType, message: any) => Promise<void>` |

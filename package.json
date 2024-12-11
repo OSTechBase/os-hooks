@@ -13,6 +13,7 @@
     "prepare": "husky install",
     "init": "pnpm install && pnpm run build",
     "start": "pnpm run dev",
+    "start:mock": "node mock-server.js",
     "clean-dist": "rimraf 'packages/hooks/{lib,es,node_modules,dist}'",
     "clean": "pnpm run clean-dist && rimraf node_modules",
     "dev": "dumi dev",
@@ -90,6 +91,8 @@
     }
   },
   "dependencies": {
-    "@types/react": "^18.3.12"
+    "@types/react": "^18.3.12",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
   }
 }
