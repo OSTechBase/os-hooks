@@ -3,12 +3,8 @@ import { useStream } from 'os-hooks';
 
 const StickyComponent = () => {
   const { messageList, run } = useStream('/api/stream', {
-    // init: {
-    //   headers: {
-    //     Authentication: 'Bearer cdzyjCC$oJmoCN*4LPgD2Lye_9JERU1KcGqzhW4d4yWMH_05SWVpfbGzzg_8yn1gsBH1opRO0qaX0'
-    //   }
-    // },
-    formatResult: (data) => {
+    customize: true,
+    formatResult: (data, setMessageList) => {
       let partialData = data.replace('data: [DONE]', '')
       // 处理逐个接收到的数据块
       const jsonParts = partialData.split('data:').filter(Boolean);
@@ -18,7 +14,27 @@ const StickyComponent = () => {
         const response = content ? content : '';
         return srt + response;
       }, '');
-      return responseStr
+      setMessageList((history: any) => {
+        let newHistory;
+        // 如果聊天记录最后一条不是机器人，则拼接一条机器人回答对象
+        if (history[history.length - 1].type !== 'reply') {
+          newHistory = [
+            ...history,
+            {
+              type: 'reply',
+              created: Date.now(),
+              content: responseStr,
+            },
+          ];
+        } else {
+          // 聊天记录最后一条是机器人,则直接在机器人回答的内容后面拼接新回答
+          history[history.length - 1].content =
+            history[history.length - 1].content + responseStr;
+          // 不能直接history赋值，要加上[... ]生成新对象,否则setState会认为引用地址没变，不执行页面刷新
+          newHistory = [...history];
+        }
+        return newHistory;
+      });
     }
   });
 
@@ -26,7 +42,7 @@ const StickyComponent = () => {
     <div>
       {
         messageList.map(item => {
-          return <div key={item.id}>{item.response}</div>
+          return <div key={item.created}>{item.content}</div>
         })
       }
       <button onClick={() => {
@@ -44,8 +60,8 @@ const StickyComponent = () => {
         },
           {
             type: 'sending',
-            id: Date.now(),
-            response: '你好'
+            created: Date.now(),
+            content: '你好'
           }
         )
       }}>发送</button>
