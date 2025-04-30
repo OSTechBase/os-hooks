@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useMediaRecorder } from 'os-hooks';
+import { Flex } from 'antd';
 
 const RecorderDemo = () => {
   const {
@@ -44,13 +45,13 @@ const RecorderDemo = () => {
           </>
         )}
       </div>
-      <div style={{ margin: '10px 0' }}>
-        <button onClick={startRecord}>开始录制</button>
+      <Flex wrap gap={10}>
+        <button onClick={() => startRecord()}>开始录制</button>
         <button onClick={pauseRecord}>暂停录制</button>
         <button onClick={resumeRecord}>恢复录制</button>
         <button onClick={stopRecord}>停止录制</button>
         <button onClick={reset}>重置</button>
-      </div>
+      </Flex>
       {error && <p style={{ color: 'red' }}>Error: {error.message}</p>}
     </div>
   );

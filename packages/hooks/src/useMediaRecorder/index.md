@@ -40,14 +40,14 @@ const { audioUrl, startRecord, stopRecord, pauseRecord, resumeRecord, reset, err
 
 ### Result
 
-| 参数          | 说明                 | 类型                  |
-| ------------- | -------------------- | --------------------- |
-| mediaUrl      | 录制媒体的 url       | `string`              |
-| blobData      | 录制媒体的 blob 数据 | `Blob`                |
-| mediaRecorder | 媒体实例             | `MediaRecorder`       |
-| startRecord   | 开始录音             | `() => Promise<void>` |
-| pauseRecord   | 暂停录音             | `() => void`          |
-| stopRecord    | 停止录音             | `() => void`          |
-| resumeRecord  | 恢复录音             | `() => void`          |
-| reset         | 重置录音             | `() => void`          |
-| error         | 错误状态             | `Error \| null`       |
+| 参数          | 说明                 | 类型                                                                                           |
+| ------------- | -------------------- | ---------------------------------------------------------------------------------------------- |
+| mediaUrl      | 录制媒体的 url       | `string`                                                                                       |
+| blobData      | 录制媒体的 blob 数据 | `Blob`                                                                                         |
+| mediaRecorder | 媒体实例             | `MediaRecorder`                                                                                |
+| startRecord   | 开始录音             | `() => Promise<void> \| (timeslice?: number, onChunk?: (blob: Blob) => void) => Promise<void>` |
+| pauseRecord   | 暂停录音             | `() => void`                                                                                   |
+| stopRecord    | 停止录音             | `() => void`                                                                                   |
+| resumeRecord  | 恢复录音             | `() => void`                                                                                   |
+| reset         | 重置录音             | `() => void`                                                                                   |
+| error         | 错误状态             | `Error \| null`                                                                                |

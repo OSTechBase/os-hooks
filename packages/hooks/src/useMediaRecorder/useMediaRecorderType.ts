@@ -3,7 +3,7 @@ interface UseMediaRecorderReturn {
   blobData: Blob | null; // 音频 Blob
   mediaStream: MediaStream | null;
   mediaRecorder: MediaRecorder | null;
-  startRecord: () => Promise<void>; // 开始录音
+  startRecord: (timeslice?: number, onChunk?: (blob: Blob) => void) => Promise<void>; // 开始录音
   stopRecord: () => void; // 停止录音
   pauseRecord: () => void; // 暂停录音
   resumeRecord: () => void; // 恢复录音
