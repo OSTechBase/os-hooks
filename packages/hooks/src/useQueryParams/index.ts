@@ -1,11 +1,31 @@
 import { useMemo } from 'react';
-function useQueryParams<T>(defaultValue: string): string;
-function useQueryParams(): { [key: string]: string };
-function useQueryParams(paramName?: string) {
+
+type UseQueryParamsResult<T> = T extends string ? string | null : Record<string, string>;
+
+function useQueryParams<T extends string>(
+  paramName: T,
+  options?: { search?: string; url?: string },
+): UseQueryParamsResult<T>;
+function useQueryParams(options?: {
+  search?: string;
+  url?: string;
+}): UseQueryParamsResult<undefined>;
+function useQueryParams(
+  paramNameOrOptions?: string | { search?: string; url?: string },
+  maybeOptions?: { search?: string; url?: string },
+) {
+  const paramName = typeof paramNameOrOptions === 'string' ? paramNameOrOptions : undefined;
+  const options = typeof paramNameOrOptions === 'string' ? maybeOptions : paramNameOrOptions;
+
   return useMemo(() => {
-    const query = new URLSearchParams(window.location.search);
+    let search = options?.search;
+    if (!search && options?.url) {
+      const urlObj = new URL(options.url, window.location.origin);
+      search = urlObj.search;
+    }
+    const query = new URLSearchParams(search || window.location.search);
     return paramName ? query.get(paramName) : Object.fromEntries(query.entries());
-  }, [paramName]);
+  }, [paramName, options?.search, options?.url]);
 }
 
 export default useQueryParams;

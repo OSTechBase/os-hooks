@@ -2,10 +2,13 @@ import { createRoot } from 'react-dom/client';
 import MyModalForm from './MyModalForm';
 import { ModalFormProps } from '@ant-design/pro-components';
 import React, { SyntheticEvent } from 'react';
+import type { ProFormColumnsType } from '@ant-design/pro-components';
+
 interface configForm {
     children?: JSX.Element;
     onClose?: (e: SyntheticEvent<Element, Event>) => void;
     onFinish?: Function;
+    columns?: ProFormColumnsType<any>;
 }
 export type ModalFormType = configForm & ModalFormProps
 const openModalForm = (config: ModalFormType) => {
