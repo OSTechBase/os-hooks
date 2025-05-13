@@ -26,13 +26,14 @@ nav:
 ```ts
 const openModal = useModalFn(useModalType: 'dom' | 'form');
 
+```
 
 ### Params
 
-| 参数         | 说明         | 类型                                                               | 默认值 |
-| ------------ | ------------ | ------------------------------------------------------------------ | ------ |
-| useModalType | 弹框的类型   | `'dom' \| 'form'`                                                  | `dom`  |
-| openModal    | 弹框参数配置 | `(config: ModalType \| ModalFormType) => void`                     | -      |
+| 参数         | 说明         | 类型                                           | 默认值 |
+| ------------ | ------------ | ---------------------------------------------- | ------ |
+| useModalType | 弹框的类型   | `'dom' \| 'form'`                              | `dom`  |
+| openModal    | 弹框参数配置 | `(config: ModalType \| ModalFormType) => void` | -      |
 
 ### ModalType
 
@@ -52,10 +53,9 @@ const openModal = useModalFn(useModalType: 'dom' | 'form');
 
 #### 基本弹框参数
 
-| 参数     | 说明                               | 类型                                |
-| -------- | ---------------------------------- | ----------------------------------- |
-| onClose  | 关闭弹框时的回调                   | `(e: React.SyntheticEvent) => void` |
-| onFinish | 表单提交回调，返回 true 则关闭弹框 | `async (values: any) => boolean`    |
-| children | 自定义表单内容                     | `JSX.Element`                       |
-| columns  | 表单字段配置（启用 BetaSchemaForm）| `ProFormColumnsType<any>[]`         |
-```
+| 参数     | 说明                                | 类型                                |
+| -------- | ----------------------------------- | ----------------------------------- |
+| onClose  | 关闭弹框时的回调                    | `(e: React.SyntheticEvent) => void` |
+| onFinish | 表单提交回调，返回 true 则关闭弹框  | `async (values: any) => boolean`    |
+| children | 自定义表单内容                      | `JSX.Element`                       |
+| columns  | 表单字段配置（启用 BetaSchemaForm） | `ProFormColumnsType<any>[]`         |
