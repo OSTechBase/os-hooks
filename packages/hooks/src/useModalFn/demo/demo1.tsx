@@ -7,7 +7,7 @@ const useModalDemo = () => {
     openModal({
       title: '基本弹框',
       children: <>基本弹框</>,
-      destroyOnClose: true,
+      destroyOnHidden: true,
       onOk: () => {
         return true;
       },

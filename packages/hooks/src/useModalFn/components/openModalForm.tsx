@@ -24,7 +24,7 @@ const openModalForm = (config: ModalFormType) => {
 
     const destruction = () => {
         //不销毁
-        if (!currentConfig.modalProps?.destroyOnClose) {
+        if (!currentConfig.modalProps?.destroyOnHidden) {
             return
         }
         // 延迟销毁，确保React有机会更新DOM  
@@ -49,7 +49,7 @@ const openModalForm = (config: ModalFormType) => {
     const currentConfig: ModalFormType & { closeModal: Function } = {
         open: true,
         modalProps: {
-            destroyOnClose: true,
+            destroyOnHidden: true,
             onCancel: closeModal,
         },
         closeModal,
