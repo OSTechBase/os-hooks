@@ -4,14 +4,15 @@ import { ModalFormProps } from '@ant-design/pro-components';
 import React, { SyntheticEvent } from 'react';
 import type { ProFormColumnsType } from '@ant-design/pro-components';
 
-interface configForm {
+interface ConfigForm<T> {
     children?: JSX.Element;
     onClose?: (e: SyntheticEvent<Element, Event>) => void;
-    onFinish?: Function;
-    columns?: ProFormColumnsType<any>;
+    onFinish?: (values: T) => Promise<boolean | void>;
+    columns?: ProFormColumnsType<T>[];
 }
-export type ModalFormType = configForm & ModalFormProps
-const openModalForm = (config: ModalFormType) => {
+
+export type ModalFormType<T> = ConfigForm<T> & ModalFormProps;
+const openModalForm = <T extends Record<string, any>>(config: ModalFormType<T>) => {
     const { onClose } = config
     const divBox = document.createElement('div');
     document.body.appendChild(divBox);
@@ -40,13 +41,13 @@ const openModalForm = (config: ModalFormType) => {
         })
     };
 
-    const renderModal = (params: ModalFormType & { closeModal: Function }) => {
+    const renderModal = (params: ModalFormType<T> & { closeModal: Function }) => {
         setTimeout(() => {
             root.render(<MyModalForm {...params} />);
         })
     };
 
-    const currentConfig: ModalFormType & { closeModal: Function } = {
+    const currentConfig: ModalFormType<T> & { closeModal: Function } = {
         open: true,
         modalProps: {
             destroyOnHidden: true,

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useLatest, useModalFn } from 'os-hooks';
-import { ProFormColumnsType, ProFormText } from '@ant-design/pro-components';
+import React from 'react';
+import { useModalFn } from 'os-hooks';
+import { ProFormColumnsType } from '@ant-design/pro-components';
 type DataItem = {
   name: string;
   state: string;
@@ -44,17 +44,13 @@ const columns: ProFormColumnsType<DataItem>[] = [
   },
 ]
 const useModalDemo = () => {
-  const openModal = useModalFn('form');
-  const [value, setValue] = useState('hello')
-  const latestCountRef = useLatest(value);
+  const openModal = useModalFn<DataItem>('form');
   const openModalFn = () => {
     openModal({
       title: '使用 columns 的表单弹框',
       columns,
       onFinish: async (values) => {
         console.log('values', values);
-        console.log('name', value);
-        console.log('name-latestCountRef', latestCountRef.current);
         return true;
       },
       onClose: (e) => {

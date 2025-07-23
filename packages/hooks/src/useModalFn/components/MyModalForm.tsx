@@ -2,26 +2,25 @@ import React from 'react';
 import { ModalForm, BetaSchemaForm } from '@ant-design/pro-components';
 import type { ProFormColumnsType } from '@ant-design/pro-components';
 
-interface Props {
+interface Props<T> {
     closeModal: Function;
     children?: JSX.Element;
-    onFinish?: Function;
-    columns?: ProFormColumnsType<any>; // 是否传入 columns
+    onFinish?: (values: T) => Promise<boolean | void>;
+    columns?: ProFormColumnsType<T>[]; // 是否传入 columns
     [key: string]: any;
 }
 
-const MyModalForm: React.FC<Props> = (props) => {
+const MyModalForm = <T extends Record<string, any>>(props: Props<T>) => {
     const { closeModal, children, onFinish, columns, ...rest } = props;
 
-    const handleFinish = async (values: any) => {
-        const shouldClose = onFinish ? await onFinish(values) : true;
+    const handleFinish = async (values: T) => {
+        const shouldClose = onFinish ? await onFinish(values as T) : true;
         if (shouldClose) closeModal();
         return true;
     };
-
     if (columns && Array.isArray(columns)) {
         return (
-            <BetaSchemaForm
+            <BetaSchemaForm<T>
                 columns={columns}
                 layoutType='ModalForm'
                 onFinish={handleFinish}
@@ -31,7 +30,7 @@ const MyModalForm: React.FC<Props> = (props) => {
     }
 
     return (
-        <ModalForm
+        <ModalForm<T>
             onFinish={handleFinish}
             {...rest}
         >
