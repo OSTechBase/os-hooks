@@ -13,12 +13,18 @@ const useMediaRecorder = (
 
   // 清理媒体流和录音器
   const cleanup = useCallback(() => {
-    if (mediaRecorder.current?.stream) {
-      mediaRecorder.current.stream.getTracks().forEach((track) => {
+    const recorder = mediaRecorder.current;
+
+    if (recorder?.stream) {
+      recorder.stream.getTracks().forEach((track) => {
         track.stop(); // 关闭麦克风/摄像头
       });
     }
-    mediaRecorder.current?.stop();
+
+    if (recorder && recorder.state !== 'inactive') {
+      recorder.stop();
+    }
+
     mediaRecorder.current = null;
     setMediaStream(null);
   }, []);

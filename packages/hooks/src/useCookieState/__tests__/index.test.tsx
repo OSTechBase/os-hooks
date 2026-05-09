@@ -81,6 +81,24 @@ describe('useCookieState', () => {
     expect(hook.result.current.state).toBe('hello world, zhangsan');
   });
 
+  it('should use latest state for consecutive function updates', () => {
+    const COOKIE = 'test-func-updater-latest-state';
+    const hook = setUp(COOKIE, {
+      defaultValue: 'A',
+    });
+
+    act(() => {
+      hook.result.current.setState('B');
+    });
+
+    act(() => {
+      hook.result.current.setState((state) => `${state}-C`);
+    });
+
+    expect(hook.result.current.state).toBe('B-C');
+    expect(Cookies.get(COOKIE)).toBe('B-C');
+  });
+
   it('using the same cookie name', () => {
     const COOKIE_NAME = 'test-same-cookie-name';
     const { result: result1 } = setUp(COOKIE_NAME, { defaultValue: 'A' });

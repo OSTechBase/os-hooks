@@ -1,6 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import useUrlAsFile from '../index';
 import { act } from 'react';
+import { sleep } from '../../utils/testingHelpers';
 
 // Mock fetch globally
 global.fetch = jest.fn();
@@ -18,6 +19,11 @@ beforeEach(() => {
 });
 
 describe('useUrlAsFile', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'warn').mockImplementation(() => {});
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
   it('should initialize with null file', () => {
     const { result } = renderHook(() => useUrlAsFile());
     const [file] = result.current;
@@ -50,12 +56,10 @@ describe('useUrlAsFile', () => {
       expect.any(Object), // 忽略 signal 参数
     );
     expect(file).toBeInstanceOf(File);
-
-    // if (file) {
-    //   expect(file.name).toBe('mock.txt');
-    //   expect(file.type).toBe('text/plain');
-    //   expect(await file.text()).toBe('mock content');
-    // }
+    expect(result.current[0]).toBeInstanceOf(File);
+    const resolvedFile = file as unknown as File;
+    expect(resolvedFile.name).toBe('mock.txt');
+    expect(resolvedFile.type).toBe('text/plain');
   });
 
   it('should handle fetch error', async () => {
@@ -73,6 +77,43 @@ describe('useUrlAsFile', () => {
       error = e as Error;
     }
 
-    // expect(error).toEqual(new Error('Network error'));
+    expect(error).toBeNull();
+    expect(result.current[0]).toBeNull();
+    expect(console.error).toHaveBeenCalled();
+  });
+
+  it('should cancel fetch and reset file state', async () => {
+    let abortSignal: AbortSignal | null | undefined;
+    (fetch as jest.Mock).mockImplementationOnce((_url, init?: RequestInit) => {
+      abortSignal = init?.signal;
+      return new Promise((_resolve, reject) => {
+        abortSignal?.addEventListener('abort', () => {
+          const error = new Error('aborted');
+          (error as any).name = 'AbortError';
+          reject(error);
+        });
+      });
+    });
+
+    const { result } = renderHook(() => useUrlAsFile());
+    const [, fetchUrlAsFile, cancelFetch] = result.current;
+
+    let response: File | null = null;
+    const pending = act(async () => {
+      response = await fetchUrlAsFile('https://example.com/slow.txt', 'slow.txt');
+    });
+
+    act(() => {
+      cancelFetch();
+    });
+
+    await pending;
+    await act(async () => {
+      await sleep(0);
+    });
+
+    expect(response).toBeNull();
+    expect(result.current[0]).toBeNull();
+    expect(console.warn).toHaveBeenCalledWith('Fetch aborted');
   });
 });

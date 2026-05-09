@@ -98,4 +98,101 @@ describe('useStorageState', () => {
     act(() => hook.result.current.setState());
     expect(hook.result.current.state).toBeUndefined();
   });
+
+  it('should support function updater with latest state', () => {
+    const hook = setUp({ key: 'key', defaultValue: 'A' });
+
+    act(() => {
+      hook.result.current.setState('B');
+    });
+
+    act(() => {
+      hook.result.current.setState((prev) => `${prev}-C`);
+    });
+
+    expect(hook.result.current.state).toBe('B-C');
+  });
+
+  it('should support custom serializer and deserializer', () => {
+    const storage = new TestStorage();
+    const useStorageState = createUseStorageState(() => storage);
+
+    const hook = renderHook(() =>
+      useStorageState<{ count: number }>('custom-key', {
+        defaultValue: { count: 1 },
+        serializer: (value: { count: number }) => String(value.count),
+        deserializer: (value) => ({ count: Number(value) }),
+      }),
+    );
+
+    act(() => {
+      hook.result.current[1]({ count: 2 });
+    });
+
+    expect(storage.getItem('custom-key')).toBe('2');
+
+    const anotherHook = renderHook(() =>
+      useStorageState<{ count: number }>('custom-key', {
+        serializer: (value: { count: number }) => String(value.count),
+        deserializer: (value) => ({ count: Number(value) }),
+      }),
+    );
+
+    expect(anotherHook.result.current[0]).toEqual({ count: 2 });
+  });
+
+  it('should fallback to function default value and use default onError when storage accessor fails', () => {
+    const error = new Error('storage blocked');
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const useStorageState = createUseStorageState(() => {
+      throw error;
+    });
+
+    const hook = renderHook(() =>
+      useStorageState('broken-key', {
+        defaultValue: () => 'fallback',
+      }),
+    );
+
+    expect(hook.result.current[0]).toBe('fallback');
+    expect(consoleErrorSpy).toHaveBeenCalledWith(error);
+  });
+
+  it('should call custom onError when reading storage fails', () => {
+    const error = new Error('read failed');
+    const storage = new TestStorage();
+    storage.getItem = jest.fn(() => {
+      throw error;
+    });
+    const onError = jest.fn();
+    const useStorageState = createUseStorageState(() => storage);
+
+    const hook = renderHook(() =>
+      useStorageState('broken-read-key', {
+        defaultValue: () => 'safe-value',
+        onError,
+      }),
+    );
+
+    expect(hook.result.current[0]).toBe('safe-value');
+    expect(onError).toHaveBeenCalledWith(error);
+  });
+
+  it('should log when writing to storage fails', () => {
+    const error = new Error('quota exceeded');
+    const storage = new TestStorage();
+    storage.setItem = jest.fn(() => {
+      throw error;
+    });
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const useStorageState = createUseStorageState(() => storage);
+    const hook = renderHook(() => useStorageState('write-fail-key'));
+
+    act(() => {
+      hook.result.current[1]('value');
+    });
+
+    expect(hook.result.current[0]).toBe('value');
+    expect(consoleErrorSpy).toHaveBeenCalledWith(error);
+  });
 });

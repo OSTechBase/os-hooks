@@ -19,4 +19,23 @@ describe('useRafState', () => {
     expect(result.current[0]).toBe(1);
     mockRaf.mockRestore();
   });
+
+  it('should cancel scheduled frame on unmount', () => {
+    const cancelSpy = jest.spyOn(window, 'cancelAnimationFrame').mockImplementation(() => {});
+    const mockRaf = jest
+      .spyOn(window, 'requestAnimationFrame')
+      .mockImplementation(() => 123);
+
+    const { result, unmount } = renderHook(() => useRafState(0));
+
+    act(() => {
+      result.current[1](2);
+    });
+
+    unmount();
+
+    expect(cancelSpy).toHaveBeenCalledWith(123);
+    mockRaf.mockRestore();
+    cancelSpy.mockRestore();
+  });
 });

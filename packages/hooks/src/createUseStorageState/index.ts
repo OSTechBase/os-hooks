@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import useUpdateEffect from '../useUpdateEffect';
 import { isFunction, isUndef } from '../utils';
 
@@ -56,13 +56,18 @@ export function createUseStorageState(getStorage: () => Storage | undefined) {
     }
 
     const [state, setState] = useState(getStoredValue);
+    const stateRef = useRef(state);
+
+    useEffect(() => {
+      stateRef.current = state;
+    }, [state]);
 
     useUpdateEffect(() => {
       setState(getStoredValue());
     }, [key]);
 
     const updateState = (value?: SetState<T>) => {
-      const currentState = isFunction(value) ? value(state) : value;
+      const currentState = isFunction(value) ? value(stateRef.current) : value;
       setState(currentState);
 
       if (isUndef(currentState)) {

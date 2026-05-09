@@ -106,7 +106,30 @@ describe('useAudioPlay hook', () => {
       result.current.play();
     });
 
+    act(() => {
+      const onEnded = audioMock.onended as ((this: HTMLAudioElement, ev: Event) => any) | null;
+      onEnded?.call(audioMock as HTMLAudioElement, new Event('ended'));
+    });
+
     expect(audioMock.pause).toHaveBeenCalled();
+    expect(result.current.isPlaying).toBe(false);
+  });
+
+  it('should handle play rejection', async () => {
+    (audioMock.play as jest.Mock).mockRejectedValueOnce(new Error('play failed'));
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { result } = renderHook(() => useAudioPlay());
+
+    act(() => {
+      result.current.setSrc('test-audio.mp3');
+    });
+
+    await act(async () => {
+      result.current.play();
+      await Promise.resolve();
+    });
+
+    expect(consoleErrorSpy).toHaveBeenCalled();
     expect(result.current.isPlaying).toBe(false);
   });
 });

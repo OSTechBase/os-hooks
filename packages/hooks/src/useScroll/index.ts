@@ -15,6 +15,7 @@ function useScroll(
 ): Position | undefined {
   const [position, setPosition] = useRafState<Position>();
   const shouldUpdateRef = useRef(shouldUpdate);
+  shouldUpdateRef.current = shouldUpdate;
   useEffectWithTarget(
     () => {
       const el = getTargetElement(target, document);

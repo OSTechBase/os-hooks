@@ -17,6 +17,7 @@ import useScroll from './useScroll';
 import useRafState from './useRafState';
 import useMemoizedFn from './useMemoizedFn';
 import useQueryParams from './useQueryParams';
+import useQueryState from './useQueryState';
 import useStream from './useStream';
 import useWebSocket from './useWebSocket';
 import useLatest from './useLatest';
@@ -41,6 +42,7 @@ export {
   useRafState,
   useMemoizedFn,
   useQueryParams,
+  useQueryState,
   useStream,
   useWebSocket,
   useLatest,

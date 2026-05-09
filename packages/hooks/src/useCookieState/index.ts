@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { isFunction, isString } from '../utils';
 
 export type State = string | undefined;
@@ -20,6 +20,11 @@ function useCookieState(cookieKey: string, options: Options = {}) {
 
     return options.defaultValue;
   });
+  const stateRef = useRef(state);
+
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
 
   const updateState = useCallback(
     (
@@ -27,7 +32,7 @@ function useCookieState(cookieKey: string, options: Options = {}) {
       newOptions: Cookies.CookieAttributes = {},
     ) => {
       const { defaultValue, ...restOptions } = { ...options, ...newOptions };
-      const value = isFunction(newValue) ? newValue(state) : newValue;
+      const value = isFunction(newValue) ? newValue(stateRef.current) : newValue;
 
       setState(value);
 
